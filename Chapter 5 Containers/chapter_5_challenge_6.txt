@@ -1,0 +1,33 @@
+# Lists, tuples, and dictionaries are just a few of the containers
+# built into Python. Research Python sets (a type of container).
+# When would you use a set?
+
+Sets in Python
+
+The data type "set", which is a collection type, has been part
+of Python since version 2.4. A set contains an unordered collection
+of unique and immutable objects. The set data type is, as the name
+implies, a Python implementation of the sets as they are known from
+mathematics. This explains, why sets unlike lists or tuples can't
+have multiple occurrences of the same element.
+
+Do you just need to know whether or not you've already got a
+particular value, but without ordering (and you don't need to store
+duplicates)? Use a set.
+
+set requires items to be hashable, list doesn't: if you have non-hashable
+items, therefore, you cannot use set and must instead use list.
+
+set forbids duplicates, list does not: also a crucial distinction.
+(A "multiset", which maps duplicates into a different count for items
+ present more than once, can be found in collections.Counter -- you could
+ build one as a dict, if for some weird reason you couldn't import collections,
+ or, in pre-2.7 Python as a collections.defaultdict(int), using the items as keys
+ and the associated value as the count).
+
+Checking for membership of a value in a set (or dict, for keys) is
+blazingly fast (taking about a constant, short time), while in a list
+it takes time proportional to the list's length in the average and worst
+cases. So, if you have hashable items, don't care either way about order
+or duplicates, and want speedy membership checking, set is better than list.
+
